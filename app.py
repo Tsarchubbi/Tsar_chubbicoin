@@ -18,11 +18,17 @@ import time
 app = Flask(__name__)
 
 #configure mysql
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'gerome'
-app.config['MYSQL_DB'] = 'crypto'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+import os
+
+app.config['MYSQL_HOST'] = os.getenv("MYSQL_HOST")
+app.config['MYSQL_USER'] = os.getenv("MYSQL_USER")
+app.config['MYSQL_PASSWORD'] = os.getenv("MYSQL_PASSWORD")
+app.config['MYSQL_DB'] = os.getenv("MYSQL_DB")
+app.config['MYSQL_PORT'] = 3306
+
+
+
+
 
 #initialize mysql
 mysql = MySQL(app)
@@ -171,4 +177,4 @@ def index():
 #Run app
 if __name__ == '__main__':
     app.secret_key = 'secret123'
-    app.run(debug = True)
+    app.run(debug = False)

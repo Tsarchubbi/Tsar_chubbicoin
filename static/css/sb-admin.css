@@ -304,7 +304,7 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   display: block;
   width: 100%;
   margin-bottom: 0;
-  /* Override default `<label>` margin */
+  /* Override default <label> margin */
   line-height: 1.5;
   color: #495057;
   border: 1px solid transparent;
@@ -373,3 +373,4 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
+
