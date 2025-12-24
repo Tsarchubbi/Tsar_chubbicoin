@@ -26,14 +26,6 @@ app.config['MYSQL_DB'] = os.getenv("MYSQL_DB")
 
 mysql.init_app(app)
 
-
-
-
-
-
-#initialize mysql
-mysql = MySQL(app)
-
 #wrap to define if the user is currently logged in from session
 def is_logged_in(f):
     @wraps(f)
