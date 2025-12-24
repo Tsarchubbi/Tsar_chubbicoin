@@ -2,10 +2,12 @@
 # -*- coding: utf-8 -*-
 
 #import flask dependencies for web GUI
+import os
 from flask import Flask, render_template, flash, redirect, url_for, session, request, logging
 from passlib.hash import sha256_crypt
-from flask_mysqldb import MySQL
 from functools import wraps
+from extensions import mysql
+
 
 #import other functions and classes
 from sqlhelpers import *
@@ -17,14 +19,13 @@ import time
 #initialize the app
 app = Flask(__name__)
 
-#configure mysql
-import os
-
 app.config['MYSQL_HOST'] = os.getenv("MYSQL_HOST")
 app.config['MYSQL_USER'] = os.getenv("MYSQL_USER")
 app.config['MYSQL_PASSWORD'] = os.getenv("MYSQL_PASSWORD")
 app.config['MYSQL_DB'] = os.getenv("MYSQL_DB")
-app.config['MYSQL_PORT'] = 3306
+
+mysql.init_app(app)
+
 
 
 

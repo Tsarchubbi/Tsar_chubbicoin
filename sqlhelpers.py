@@ -1,4 +1,5 @@
-from app import mysql, session
+from app import session
+from extensions import mysql
 from blockchain import Block, Blockchain
 
 #custom exceptions for transaction errors
